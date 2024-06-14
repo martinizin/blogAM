@@ -1,0 +1,41 @@
+.registro-container {
+    background-color: #54535382; /* Color de fondo gris */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px; /* Espacio interior alrededor del contenido */
+    box-sizing: border-box; /* Incluir el relleno y el borde en el ancho y alto total */
+    margin: 0; /* Asegurarse de que no haya márgenes adicionales */
+    text-align: center; /* Alineación del texto al centro */
+  }
+  
+  .title-registro {
+    margin: 0; /* Asegurarse de que no haya márgenes adicionales */
+    padding: 10px 0; /* Espacio interior arriba y abajo */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  .form-container {
+    padding: 20px; /* Espacio interior alrededor del contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 80%; /* Ancho máximo para centrar */
+    margin: 0 auto; /* Centrar horizontalmente */
+  }
+  
+  .input-group {
+    padding: 20px; /* Relleno interno */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Alineación del texto al centro */
+  }
+  
+  .input-container {
+    margin-bottom: 16px; /* Espacio entre los campos de entrada */
+    background-color: rgba(98, 98, 98, 0.563); /* Color de fondo blanco para los campos de entrada */
+
+  }
+  
+  .input-field {
+    background-color: rgba(98, 98, 98, 0.563); /* Color de fondo blanco para los campos de entrada */
+    padding: 10px; /* Relleno interno */
+    border-radius: 5px; /* Bordes redondeados */
+    max-width: 100%;
+  }
+  

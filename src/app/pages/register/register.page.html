@@ -1,37 +1,33 @@
 <ion-content [fullscreen]="true">
-  <div class="header">
-    <h1 class="title">Registrar Cuenta</h1>
-    <p class="sub-title">Ingrese sus datos para crear una nueva cuenta</p>
-  </div>
+  <div class="header"></div>
 
   <form [formGroup]="singUpForm">
-    <div style="text-align: center;">
-      <h1 class="title">REGISTRO</h1>
+    <div class="registro-container">
+      <h1 class="title-registro">REGISTRO</h1>
     </div>
 
-    <div class="ion-padding">
-      <ion-item>
-        <ion-input formControlName="email" placeholder="email"></ion-input>
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-item>
-      <div
-        *ngIf="singUpForm.get('email')?.hasError('required') && singUpForm.get('email')?.touched"
-        style="padding-top: -26px; padding-bottom: 16px"
-      >
-        <ion-text color="danger">Email requerido</ion-text>
-      </div>
-      <ion-item>
-        <ion-input
-          formControlName="password"
-          placeholder="password"
-        ></ion-input>
-        <ion-icon name="lock-closed-outline"></ion-icon>
-      </ion-item>
-      <div
-        *ngIf="singUpForm.get('email')?.hasError('required') && singUpForm.get('email')?.touched"
-        style="padding-top: -26px; padding-bottom: 16px"
-      >
-        <ion-text color="danger">Contraseña requerida</ion-text>
+    <div class="ion-padding form-container">
+      <div class="input-group">
+        <ion-item>
+          <ion-input class="input-field" formControlName="email" placeholder="Correo"></ion-input>
+          <ion-icon name="mail-outline"></ion-icon>
+        </ion-item>
+        <div
+          *ngIf="singUpForm.get('email')?.hasError('required') && singUpForm.get('email')?.touched"
+          style="padding-top: -26px; padding-bottom: 16px"
+        >
+          <ion-text color="danger">Correo requerido</ion-text>
+        </div>
+        <ion-item>
+          <ion-input class="input-field" formControlName="password" placeholder="Contraseña"></ion-input>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </ion-item>
+        <div
+          *ngIf="singUpForm.get('password')?.hasError('required') && singUpForm.get('password')?.touched"
+          style="padding-top: -26px; padding-bottom: 16px"
+        >
+          <ion-text color="danger">Contraseña requerida</ion-text>
+        </div>
       </div>
       <div id="container">
         <p>
