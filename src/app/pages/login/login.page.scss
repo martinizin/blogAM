@@ -1,0 +1,41 @@
+/* login.page.scss */
+ion-content {
+    --background: #430d54ad;
+  }
+  
+  .header {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .sub-title {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  .ion-padding {
+    padding: 16px;
+    
+  }
+  
+  #container {
+    text-align: center;
+  }
+  
+  ion-item {
+    margin-bottom: 16px;
+  }
+  
+  ion-button {
+    width: 100%;
+  }
+  
+  ion-row {
+    margin-top: 16px;
+  }
+  

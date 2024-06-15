@@ -20,11 +20,11 @@
     <ion-input [(ngModel)]="newPostContent" placeholder="Escribe algo..."></ion-input>
     <ion-buttons slot="end">
       <ion-button (click)="fileInput.click()">
-        <ion-icon name="image-outline"></ion-icon>
+        <ion-icon name="document-attach-outline"></ion-icon> Adjuntar PDF
       </ion-button>
-      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept=".pdf">
       <ion-button (click)="addPost()">
-        <ion-icon name="send-outline"></ion-icon>
+        <ion-icon name="send-outline"></ion-icon> Enviar
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

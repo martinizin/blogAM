@@ -1,8 +1,5 @@
-
 <ion-content [fullscreen]="true">
   <div class="header">
-    <h1 class="title">Bienvenido</h1>
-    <p class="sub-title">Ingresa tus credenciales para Iniciar Sesion</p>
   </div>
 
   <form [formGroup]="credentialForm">
@@ -11,7 +8,7 @@
     </div>
     <div class="ion-padding">
       <ion-item>
-        <ion-input formControlName="email" placeholder="email"></ion-input>
+        <ion-input formControlName="email" placeholder="Correo"></ion-input>
         <ion-icon name="mail-outline"></ion-icon>
       </ion-item>
       <div
@@ -22,13 +19,13 @@
       </div>
       <ion-item>
         <ion-input
-          formControlName="password"
-          placeholder="password"
+          formControlName="password" placeholder="Contraseña"
+          type="password"
         ></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
       <div
-        *ngIf="credentialForm.get('email')?.hasError('required') && credentialForm.get('email')?.touched"
+        *ngIf="credentialForm.get('password')?.hasError('required') && credentialForm.get('password')?.touched"
         style="padding-top: -26px; padding-bottom: 16px"
       >
         <ion-text color="danger">Contraseña requerida</ion-text>
@@ -43,10 +40,17 @@
       </div>
     </div>
 
-    <ion-fab horizontal="center">
-      <ion-button (click)="login()" [disabled]="!credentialForm.valid">
-        Ingresar
-      </ion-button>
-    </ion-fab>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-button (click)="login()" [disabled]="!credentialForm.valid">
+          Ingresar
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button (click)="onGoogleLogin()">
+          Iniciar con Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>

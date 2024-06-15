@@ -1,3 +1,7 @@
+ion-content {
+  --background: #430d54ad;
+}
+
 .registro-container {
     background-color: #54535382; /* Color de fondo gris */
     width: 100%; /* Ocupa todo el ancho disponible */
@@ -5,8 +9,7 @@
     box-sizing: border-box; /* Incluir el relleno y el borde en el ancho y alto total */
     margin: 0; /* Asegurarse de que no haya márgenes adicionales */
     text-align: center; /* Alineación del texto al centro */
-  }
-  
+  }  
   .title-registro {
     margin: 0; /* Asegurarse de que no haya márgenes adicionales */
     padding: 10px 0; /* Espacio interior arriba y abajo */
@@ -44,3 +47,33 @@
     --background-hover: #ffffff; /* Cambiar el color de fondo del botón al pasar el mouse */
     --background-activated: #004494; /* Cambiar el color de fondo del botón al hacer clic */
   }
+
+.header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.title-registro {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-container {
+  padding: 16px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+ion-item {
+  margin-bottom: 16px;
+}
+
+.custom-register-button {
+  width: 100%;
+}
+
+ion-row {
+  margin-top: 16px;
+}
