@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Blog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let post of posts$ | async">
+      <ion-label>
+        <p>{{ post.content }}</p>
+        <img *ngIf="post.imageUrl" [src]="post.imageUrl" style="max-width: 100%;" />
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input [(ngModel)]="newPostContent" placeholder="Escribe algo..."></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="fileInput.click()">
+        <ion-icon name="image-outline"></ion-icon>
+      </ion-button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+      <ion-button (click)="addPost()">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
