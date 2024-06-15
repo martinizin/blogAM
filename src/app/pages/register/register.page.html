@@ -29,9 +29,10 @@
           <ion-text color="danger">Contraseña requerida</ion-text>
         </div>
       </div>
-      <div id="container">
-        <p>
-          ¿Ya tienes una cuenta?
+      
+      <div id="container" class="center-text" justify="center">
+        <p >
+          ¿Ya estás registrado?
           <ion-label color="primary" [routerLink]="['/login']">
             Ingresar
           </ion-label>
@@ -40,7 +41,7 @@
     </div>
 
     <ion-fab horizontal="center">
-      <ion-button (click)="singUp()" [disabled]="!singUpForm.valid">
+      <ion-button class="custom-register-button" (click)="singUp()" [disabled]="!singUpForm.valid">
         Registrar
       </ion-button>
     </ion-fab>

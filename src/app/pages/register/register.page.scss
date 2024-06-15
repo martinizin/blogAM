@@ -39,3 +39,8 @@
     max-width: 100%;
   }
   
+  .custom-register-button {
+    --background: rgba(98, 98, 98, 0.563); /* Cambiar el color de fondo del botón */
+    --background-hover: #ffffff; /* Cambiar el color de fondo del botón al pasar el mouse */
+    --background-activated: #004494; /* Cambiar el color de fondo del botón al hacer clic */
+  }
