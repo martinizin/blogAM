@@ -9,7 +9,8 @@
     <ion-item *ngFor="let post of posts$ | async">
       <ion-label>
         <p>{{ post.content }}</p>
-        <img *ngIf="post.imageUrl" [src]="post.imageUrl" style="max-width: 100%;" />
+        <img *ngIf="post.fileType.startsWith('image')" [src]="post.uploadUrl" style="max-width: 100%;" />
+        <a *ngIf="post.fileType === 'application/pdf'" [href]="post.uploadUrl" target="_blank">View PDF</a>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -20,9 +21,9 @@
     <ion-input [(ngModel)]="newPostContent" placeholder="Escribe algo..."></ion-input>
     <ion-buttons slot="end">
       <ion-button (click)="fileInput.click()">
-        <ion-icon name="document-attach-outline"></ion-icon> Adjuntar PDF
+        <ion-icon name="document-attach-outline"></ion-icon> Adjuntar archivo
       </ion-button>
-      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept=".pdf">
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept=".pdf,image/*">
       <ion-button (click)="addPost()">
         <ion-icon name="send-outline"></ion-icon> Enviar
       </ion-button>

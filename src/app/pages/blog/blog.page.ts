@@ -24,14 +24,17 @@ export class BlogPage implements OnInit {
   }
 
   async addPost() {
-    let imageUrl = '';
+    let uploadUrl = '';
+    let fileType = '';
+
     if (this.selectedFile) {
       const filePath = `posts/${new Date().getTime()}_${this.selectedFile.name}`;
-      imageUrl = await this.blogService.uploadImage(filePath, this.selectedFile);
-      console.log('Image URL:', imageUrl);
+      uploadUrl = await this.blogService.uploadFile(filePath, this.selectedFile);
+      fileType = this.selectedFile.type;
+      console.log('Upload URL:', uploadUrl);
     }
 
-    await this.blogService.addPost(this.newPostContent, imageUrl);
+    await this.blogService.addPost(this.newPostContent, uploadUrl, fileType);
     this.newPostContent = '';
     this.selectedFile = null;
   }

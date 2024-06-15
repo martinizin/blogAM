@@ -15,17 +15,18 @@ export class BlogService {
     return this.firestore.collection('posts', ref => ref.orderBy('timestamp', 'desc')).valueChanges();
   }
 
-  addPost(content: string, imageUrl: string = ''): Promise<void> {
+  addPost(content: string, uploadUrl: string = '', fileType: string = ''): Promise<void> {
     const id = this.firestore.createId();
     return this.firestore.collection('posts').doc(id).set({
       id,
       content,
-      imageUrl,
+      uploadUrl,
+      fileType,
       timestamp: new Date()
     });
   }
 
-  uploadImage(filePath: string, file: any): Promise<string> {
+  uploadFile(filePath: string, file: any): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       const fileRef = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
