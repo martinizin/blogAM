@@ -1,79 +1,134 @@
-ion-content {
-  --background: #430d54ad;
+/* Styles for the login form */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #6d5dff, #430d54ad);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.registro-container {
-    background-color: #54535382; /* Color de fondo gris */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    padding: 20px; /* Espacio interior alrededor del contenido */
-    box-sizing: border-box; /* Incluir el relleno y el borde en el ancho y alto total */
-    margin: 0; /* Asegurarse de que no haya márgenes adicionales */
-    text-align: center; /* Alineación del texto al centro */
-  }  
-  .title-registro {
-    margin: 0; /* Asegurarse de que no haya márgenes adicionales */
-    padding: 10px 0; /* Espacio interior arriba y abajo */
-    font-weight: bold; /* Texto en negrita */
-  }
-  
-  .form-container {
-    padding: 20px; /* Espacio interior alrededor del contenido */
-    border-radius: 10px; /* Bordes redondeados */
-    max-width: 80%; /* Ancho máximo para centrar */
-    margin: 0 auto; /* Centrar horizontalmente */
-  }
-  
-  .input-group {
-    padding: 20px; /* Relleno interno */
-    border-radius: 10px; /* Bordes redondeados */
-    text-align: center; /* Alineación del texto al centro */
-  }
-  
-  .input-container {
-    margin-bottom: 16px; /* Espacio entre los campos de entrada */
-    background-color: rgba(98, 98, 98, 0.563); /* Color de fondo blanco para los campos de entrada */
-
-  }
-  
-  .input-field {
-    background-color: rgba(98, 98, 98, 0.563); /* Color de fondo blanco para los campos de entrada */
-    padding: 10px; /* Relleno interno */
-    border-radius: 5px; /* Bordes redondeados */
-    max-width: 100%;
-  }
-  
-  .custom-register-button {
-    --background: rgba(98, 98, 98, 0.563); /* Cambiar el color de fondo del botón */
-    --background-hover: #ffffff; /* Cambiar el color de fondo del botón al pasar el mouse */
-    --background-activated: #004494; /* Cambiar el color de fondo del botón al hacer clic */
-  }
-
-.header {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.title-registro {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.form-container {
-  padding: 16px;
-}
-
-.center-text {
-  text-align: center;
-}
-
-ion-item {
-  margin-bottom: 16px;
-}
-
-.custom-register-button {
+.container {
   width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-ion-row {
-  margin-top: 16px;
+.title-container {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  animation: fadeInDown 1s;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  animation: fadeIn 0.5s;
+}
+
+.link-container {
+  margin-bottom: 20px;
+}
+
+.link {
+  color: #6d5dff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #6d5dff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  animation: bounceIn 1s;
+}
+
+.button:hover {
+  background: #5b4fd9;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to { animation-timing-function: ease-in-out; }
+  0% { opacity: 0; transform: translate3d(0, -3000px, 0); }
+  60% { opacity: 1; transform: translate3d(0, 25px, 0); }
+  80% { transform: translate3d(0, -10px, 0); }
+  to { transform: translate3d(0, 0, 0); }
 }

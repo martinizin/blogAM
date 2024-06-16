@@ -1,41 +1,130 @@
-/* login.page.scss */
-ion-content {
-    --background: #430d54ad;
-  }
-  
-  .header {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .sub-title {
-    font-size: 16px;
-    color: #888;
-  }
-  
-  .ion-padding {
-    padding: 16px;
-    
-  }
-  
-  #container {
-    text-align: center;
-  }
-  
-  ion-item {
-    margin-bottom: 16px;
-  }
-  
-  ion-button {
-    width: 100%;
-  }
-  
-  ion-row {
-    margin-top: 16px;
-  }
-  
+/* Styles for the login form */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #6d5dff, #430d54ad);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s;
+}
+
+.title-container {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  animation: fadeInDown 1s;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  animation: fadeIn 0.5s;
+}
+
+.link-container {
+  margin-bottom: 20px;
+}
+
+.link {
+  color: #6d5dff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #6d5dff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  animation: bounceIn 1s;
+}
+
+.button:hover {
+  background: #5b4fd9;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to { animation-timing-function: ease-in-out; }
+  0% { opacity: 0; transform: translate3d(0, -3000px, 0); }
+  60% { opacity: 1; transform: translate3d(0, 25px, 0); }
+  80% { transform: translate3d(0, -10px, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}

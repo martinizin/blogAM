@@ -13,6 +13,8 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore'
 import { environment } from '../environments/environment';
 import {ReactiveFormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http'
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,BrowserAnimationsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

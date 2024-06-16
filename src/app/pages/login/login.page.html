@@ -1,56 +1,36 @@
-<ion-content [fullscreen]="true">
-  <div class="header">
-  </div>
+<div class="container">
+  <div class="header"></div>
 
-  <form [formGroup]="credentialForm">
-    <div style="text-align: center;">
+  <form [formGroup]="credentialForm" class="form">
+    <div class="title-container">
       <h1 class="title">LOGIN</h1>
     </div>
-    <div class="ion-padding">
-      <ion-item>
-        <ion-input formControlName="email" placeholder="Correo"></ion-input>
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-item>
-      <div
-        *ngIf="credentialForm.get('email')?.hasError('required') && credentialForm.get('email')?.touched"
-        style="padding-top: -26px; padding-bottom: 16px"
-      >
-        <ion-text color="danger">Email requerido</ion-text>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input type="email" formControlName="email" placeholder="Correo" class="input-field"/>
+        <span class="icon">📧</span>
       </div>
-      <ion-item>
-        <ion-input
-          formControlName="password" placeholder="Contraseña"
-          type="password"
-        ></ion-input>
-        <ion-icon name="lock-closed-outline"></ion-icon>
-      </ion-item>
-      <div
-        *ngIf="credentialForm.get('password')?.hasError('required') && credentialForm.get('password')?.touched"
-        style="padding-top: -26px; padding-bottom: 16px"
-      >
-        <ion-text color="danger">Contraseña requerida</ion-text>
+      <div *ngIf="credentialForm.get('email')?.hasError('required') && credentialForm.get('email')?.touched" class="error-message">
+        Email requerido
       </div>
-      <div id="container">
-        <p>
-          ¿Aún no tienes una cuenta?
-          <ion-label color="primary" [routerLink]="['/register']">
-            Crear una
-          </ion-label>
-        </p>
+
+      <div class="input-group">
+        <input type="password" formControlName="password" placeholder="Contraseña" class="input-field"/>
+        <span class="icon">🔒</span>
+      </div>
+      <div *ngIf="credentialForm.get('password')?.hasError('required') && credentialForm.get('password')?.touched" class="error-message">
+        Contraseña requerida
       </div>
     </div>
 
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="auto">
-        <ion-button (click)="login()" [disabled]="!credentialForm.valid">
-          Ingresar
-        </ion-button>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button (click)="onGoogleLogin()">
-          Iniciar con Google
-        </ion-button>
-      </ion-col>
-    </ion-row>
+    <div class="link-container">
+      <p>¿Aún no tienes una cuenta? <a href="/register" class="link">Crear una</a></p>
+    </div>
+
+    <div class="button-group">
+      <button type="button" (click)="login()" [disabled]="!credentialForm.valid" class="button">Ingresar</button>
+      <button type="button" (click)="onGoogleLogin()" class="button">Iniciar con Google</button>
+    </div>
   </form>
-</ion-content>
+</div>

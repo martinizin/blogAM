@@ -1,56 +1,36 @@
-<ion-content [fullscreen]="true">
+<div class="container">
   <div class="header"></div>
 
-  <form [formGroup]="singUpForm">
-    <div class="registro-container">
-      <h1 class="title-registro">REGISTRO</h1>
+  <form [formGroup]="singUpForm" class="form">
+    <div class="title-container">
+      <h1 class="title">REGISTRO</h1>
     </div>
 
-    <div class="ion-padding form-container">
+    <div class="form-group">
       <div class="input-group">
-        <ion-item>
-          <ion-input class="input-field" formControlName="email" placeholder="Correo"></ion-input>
-          <ion-icon name="mail-outline"></ion-icon>
-        </ion-item>
-        <div
-          *ngIf="singUpForm.get('email')?.hasError('required') && singUpForm.get('email')?.touched"
-          style="padding-top: -26px; padding-bottom: 16px"
-        >
-          <ion-text color="danger">Correo requerido</ion-text>
-        </div>
-        <ion-item>
-          <ion-input class="input-field" formControlName="password" placeholder="Contraseña" type="password"></ion-input>
-          <ion-icon name="lock-closed-outline"></ion-icon>
-        </ion-item>
-        <div
-          *ngIf="singUpForm.get('password')?.hasError('required') && singUpForm.get('password')?.touched"
-          style="padding-top: -26px; padding-bottom: 16px"
-        >
-          <ion-text color="danger">Contraseña requerida</ion-text>
-        </div>
+        <input type="email" formControlName="email" placeholder="Correo" class="input-field"/>
+        <span class="icon">📧</span>
       </div>
-      
-      <div id="container" class="center-text" justify="center">
-        <p>
-          ¿Ya estás registrado?
-          <ion-label color="primary" [routerLink]="['/login']">
-            Ingresar
-          </ion-label>
-        </p>
+      <div *ngIf="singUpForm.get('email')?.hasError('required') && singUpForm.get('email')?.touched" class="error-message">
+        Correo requerido
+      </div>
+
+      <div class="input-group">
+        <input type="password" formControlName="password" placeholder="Contraseña" class="input-field"/>
+        <span class="icon">🔒</span>
+      </div>
+      <div *ngIf="singUpForm.get('password')?.hasError('required') && singUpForm.get('password')?.touched" class="error-message">
+        Contraseña requerida
       </div>
     </div>
+      
+    <div class="link-container">
+      <p>¿Ya estás registrado? <a href="/login" class="link">Ingresar</a></p>
+    </div>
 
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="auto">
-        <ion-button class="custom-register-button" (click)="singUp()" [disabled]="!singUpForm.valid">
-          Registrar
-        </ion-button>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button (click)="onGoogleRegister()">
-          Registrar con Google
-        </ion-button>
-      </ion-col>
-    </ion-row>
+    <div class="button-group">
+      <button type="button" (click)="singUp()" [disabled]="!singUpForm.valid" class="button">Registrar</button>
+      <button type="button" (click)="onGoogleRegister()" class="button">Registrar con Google</button>
+    </div>
   </form>
-</ion-content>
+</div>
