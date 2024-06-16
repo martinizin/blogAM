@@ -1,17 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Blog</ion-title>
+    <ion-title>Blog Martin Jimenez</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-list>
     <ion-item *ngFor="let post of posts$ | async">
+      <ion-thumbnail slot="start">
+        <img *ngIf="post.fileType.startsWith('image')" [src]="post.uploadUrl" class="post-image" />
+        <ion-icon *ngIf="post.fileType === 'application/pdf'" name="document-outline"></ion-icon>
+      </ion-thumbnail>
       <ion-label>
-        <p>{{ post.content }}</p>
-        <img *ngIf="post.fileType.startsWith('image')" [src]="post.uploadUrl" style="max-width: 100%;" />
-        <a *ngIf="post.fileType === 'application/pdf'" [href]="post.uploadUrl" target="_blank">View PDF</a>
+        <h2>{{ post.content }}</h2>
+        <p *ngIf="post.fileType === 'application/pdf'">
+          <a [href]="post.uploadUrl" target="_blank">View PDF</a>
+        </p>
       </ion-label>
+      <!-- Botón para eliminar el post -->
+      <ion-button color="danger" (click)="deletePost(post.id, post.uploadUrl)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
@@ -21,18 +30,18 @@
     <ion-input [(ngModel)]="newPostContent" placeholder="Escribe algo..."></ion-input>
     <ion-buttons slot="end">
       <ion-button (click)="fileInput.click()">
-        <ion-icon name="document-attach-outline"></ion-icon> Adjuntar archivo
+        <ion-icon name="document-attach-outline"></ion-icon> SUBIR PDF
       </ion-button>
       <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept=".pdf,image/*">
       <ion-button (click)="photoInput.click()">
-        <ion-icon name="image-outline"></ion-icon> Subir Foto
+        <ion-icon name="image-outline"></ion-icon> SUBIR FOTO
       </ion-button>
       <input type="file" #photoInput (change)="onPhotoSelected($event)" style="display: none;" accept="image/*">
       <ion-button (click)="getCurrentCoordinates()">
-        <ion-icon name="location-outline"></ion-icon> Subir Locación
+        <ion-icon name="location-outline"></ion-icon> OBTENER LOCACIÓN
       </ion-button>
       <ion-button (click)="addPost()">
-        <ion-icon name="send-outline"></ion-icon> Enviar
+        <ion-icon name="send-outline"></ion-icon> ENVIAR  
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

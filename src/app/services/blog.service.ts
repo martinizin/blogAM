@@ -14,7 +14,6 @@ export class BlogService {
   getPosts(): Observable<any[]> {
     return this.firestore.collection('posts', ref => ref.orderBy('timestamp', 'desc')).valueChanges();
   }
-
   addPost(content: string, uploadUrl: string = '', fileType: string = ''): Promise<void> {
     const id = this.firestore.createId();
     return this.firestore.collection('posts').doc(id).set({
@@ -42,4 +41,21 @@ export class BlogService {
       ).subscribe();
     });
   }
+  // Función para borrar un archivo y su referencia en Firestore
+  async deletePost(postId: string, fileUrl: string): Promise<void> {
+    try {
+      // Eliminar el archivo de Firebase Storage
+      const fileRef = this.storage.refFromURL(fileUrl);
+      await fileRef.delete().toPromise();
+
+      // Eliminar el documento de Firestore
+      await this.firestore.collection('posts').doc(postId).delete();
+
+      console.log('Post and file deleted successfully');
+    } catch (error) {
+      console.error('Error deleting post and file', error);
+      throw error;
+    }
+  }
+ 
 }

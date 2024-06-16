@@ -1,0 +1,26 @@
+page-blog {
+    ion-thumbnail {
+      width: 200px; /* Tamaño fijo para la miniatura */
+      height: 80px;
+      --border-radius: 8px; /* Radio de borde redondeado */
+      overflow: hidden; /* Para asegurar que las imágenes no se desborden */
+    }
+  
+    ion-thumbnail img.post-image {
+      width: 100%; /* Ocupar todo el espacio disponible del ion-thumbnail */
+      height: auto; /* Ajustar automáticamente la altura según el ancho */
+      object-fit: cover; /* Cubrir completamente el contenedor sin distorsionar */
+    }
+  
+    ion-label h2 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+  
+    ion-label p {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+  }
+  

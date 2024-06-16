@@ -65,6 +65,15 @@ export class BlogPage implements OnInit {
     this.selectedPhoto = null;
   }
 
+  async deletePost(postId: string, filePath: string) {
+    try {
+      await this.blogService.deletePost(postId, filePath);
+      console.log('Post and file deleted successfully');
+    } catch (error) {
+      console.error('Error deleting post and file', error);
+    }
+  }
+
   // Geolocation options
   options = {
     timeout: 10000,
@@ -73,16 +82,21 @@ export class BlogPage implements OnInit {
   };
 
   // Use geolocation to get user's device coordinates
-  getCurrentCoordinates() {
-    this.geolocation.getCurrentPosition(this.options).then((resp) => {
-      console.log(resp);
-      this.latitude = resp.coords.latitude;
-      this.longitude = resp.coords.longitude;
-      this.getAddress(this.latitude, this.longitude);
-      this.sendCoordinatesToFirebase(this.latitude, this.longitude);
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
+    // Use geolocation to get user's device coordinates
+    getCurrentCoordinates() {
+      this.geolocation.getCurrentPosition(this.options).then((resp) => {
+        console.log(resp);
+        this.latitude = resp.coords.latitude;
+        this.longitude = resp.coords.longitude;
+        this.addLocationPost(this.latitude, this.longitude);
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
+    }
+    // Add location as a post
+  async addLocationPost(lat: number, long: number) {
+    const content = `Ubicación: Latitud ${lat}, Longitud ${long}`;
+    await this.blogService.addPost(content);
   }
 
   // Geocoder options

@@ -21,6 +21,10 @@ const routes: Routes = [
   },  {
     path: 'subir-ubicacion',
     loadChildren: () => import('./pages/subir-ubicacion/subir-ubicacion.module').then( m => m.SubirUbicacionPageModule)
+  },
+  {
+    path: 'fotos',
+    loadChildren: () => import('./pages/fotos/fotos.module').then( m => m.FotosPageModule)
   }
 
 ];
