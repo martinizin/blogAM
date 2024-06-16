@@ -1,7 +1,0 @@
-{
-  "name": "Blog",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
