@@ -42,18 +42,44 @@ export class BlogService {
     });
   }
   // Función para borrar un archivo y su referencia en Firestore
-  async deletePost(postId: string, fileUrl: string): Promise<void> {
+  async deletePost(postId: string, fileUrl: string, fileType: string): Promise<void> {
     try {
-      // Eliminar el archivo de Firebase Storage
-      const fileRef = this.storage.refFromURL(fileUrl);
-      await fileRef.delete().toPromise();
+      // Eliminar el archivo si es un archivo de tipo imagen
+      if (fileType.startsWith('image')) {
+        const storageRef = this.storage.refFromURL(fileUrl);
+        await storageRef.delete().toPromise();
+        console.log('File deleted successfully from Firebase Storage');
+      }
 
       // Eliminar el documento de Firestore
       await this.firestore.collection('posts').doc(postId).delete();
-
-      console.log('Post and file deleted successfully');
+      console.log('Post deleted successfully from Firestore');
     } catch (error) {
       console.error('Error deleting post and file', error);
+      throw error;
+    }
+  }
+  async deleteItem(type: 'post' | 'file' | 'location', postId: string, urlOrPath: string): Promise<void> {
+    try {
+      switch (type) {
+        case 'post':
+          await this.firestore.collection('posts').doc(postId).delete();
+          console.log('Post deleted successfully');
+          break;
+        case 'file':
+          const fileRef = this.storage.refFromURL(urlOrPath);
+          await fileRef.delete().toPromise();
+          console.log('File deleted successfully');
+          break;
+        case 'location':
+          await this.firestore.collection('Localizacion').doc(postId).delete();
+          console.log('Location deleted successfully');
+          break;
+        default:
+          throw new Error('Invalid item type');
+      }
+    } catch (error) {
+      console.error('Error deleting item', error);
       throw error;
     }
   }

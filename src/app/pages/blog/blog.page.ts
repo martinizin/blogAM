@@ -65,12 +65,12 @@ export class BlogPage implements OnInit {
     this.selectedPhoto = null;
   }
 
-  async deletePost(postId: string, filePath: string) {
+ async deletePost(type: 'post' | 'file' | 'location', postId: string, urlOrPath: string) {
     try {
-      await this.blogService.deletePost(postId, filePath);
-      console.log('Post and file deleted successfully');
+      await this.blogService.deleteItem(type, postId, urlOrPath);
+      console.log('Item deleted successfully');
     } catch (error) {
-      console.error('Error deleting post and file', error);
+      console.error('Error deleting item', error);
     }
   }
 
