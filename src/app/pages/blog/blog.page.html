@@ -24,6 +24,13 @@
         <ion-icon name="document-attach-outline"></ion-icon> Adjuntar archivo
       </ion-button>
       <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" accept=".pdf,image/*">
+      <ion-button (click)="photoInput.click()">
+        <ion-icon name="image-outline"></ion-icon> Subir Foto
+      </ion-button>
+      <input type="file" #photoInput (change)="onPhotoSelected($event)" style="display: none;" accept="image/*">
+      <ion-button (click)="getCurrentCoordinates()">
+        <ion-icon name="location-outline"></ion-icon> Subir Locación
+      </ion-button>
       <ion-button (click)="addPost()">
         <ion-icon name="send-outline"></ion-icon> Enviar
       </ion-button>

@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'blog',
     loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogPageModule)
+  },  {
+    path: 'subir-ubicacion',
+    loadChildren: () => import('./pages/subir-ubicacion/subir-ubicacion.module').then( m => m.SubirUbicacionPageModule)
   }
+
 ];
 
 @NgModule({
