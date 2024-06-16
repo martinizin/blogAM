@@ -5,7 +5,12 @@ Implementación un blog utilizando los siguientes servicios de FireBase:
 - Firebase Database
 - Firebase Authentication
 - Firebase Hosting
-  
+
+## Enlaces de videos de funcionamiento
+
+- PARTE WEB: https://drive.google.com/file/d/19K9AOGVB7Sp1wM-jzGqEl5-GZpFb_Yby/view?usp=sharing
+- PARTE MÓVIL: https://drive.google.com/file/d/1tHh_K9NAqqaxcbRLvlBC9iZNt_2-ARVO/view?usp=sharing
+
 # Autor: Martin Jimenez
 
 ## ⏬ Instalacion
@@ -113,10 +118,25 @@ Para ejecutar este proyecto necesitaras dirijirte a archivo .env y colocar tus v
 
 
 # LADO MÓVIL
+- SPLASH SCREEN
+- 
+![image](https://github.com/martinizin/blogAM/assets/117743846/b175520c-dd4e-4ae2-8c62-3b59f0c917cb)
 
-## Enlaces de videos de funcionamiento
+- FUNCIONES
 
-- PARTE WEB: https://drive.google.com/file/d/19K9AOGVB7Sp1wM-jzGqEl5-GZpFb_Yby/view?usp=sharing
-- PARTE MÓVIL: https://drive.google.com/file/d/1tHh_K9NAqqaxcbRLvlBC9iZNt_2-ARVO/view?usp=sharing
+![image](https://github.com/martinizin/blogAM/assets/117743846/7ea3c2ba-9593-4bdc-91f8-d120df1a306c)
 
-![image](https://github.com/martinizin/LoginConFirebase/assets/117743846/d3c8ee6f-e2ec-49c8-891f-5312b0789fb2)
+![image](https://github.com/martinizin/blogAM/assets/117743846/53c2b630-5e51-4713-ad7b-5a61b64334b3)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/96c19637-3940-462d-8b0d-668cf089c2ca)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/c79173c7-41e9-40e9-b3e0-31f926bb5d0c)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/b4222ab6-4bbd-4fd3-92b7-976deb122da2)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/f9daa7c5-46b7-4b2a-a086-d7b30678e61e)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/409ecbca-9368-4fa3-b5d5-60c86a2c7028)
+
+![image](https://github.com/martinizin/blogAM/assets/117743846/735a9164-64fc-49ac-ab30-c41e850d7222)
+
